@@ -17,7 +17,7 @@ Esse projeto foi desenvolvido para estudo, no bootcamp da [RocketSeat](https://r
 ### 👨‍💻 Baixar projeto
 
 Antes de baixar o código e começar seus estudos, é bom ter um editor para trabalhar com o código como o [VSCode](https://code.visualstudio.com/).
-Faça o clone deste repositório usando git clone: https://github.com/jair-araujo/snake-the-game.git pelo seu terminal ou clique em Code/Download ZIP.
+Faça o clone deste repositório usando git clone: https://github.com/jair-araujo/jogo-da-adivinhacao.git pelo seu terminal ou clique em Code/Download ZIP.
 Com o arquivo configurado na sua máquina execute o "index.HTML" e veja a jogo funcionando.
 
 ### 😉 Link do projeto publicado no GitHub Pages
