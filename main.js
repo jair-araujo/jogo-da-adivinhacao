@@ -1,36 +1,51 @@
+//Variáveis
 const screenOne = document.querySelector('.screen-one');
 const screenTwo = document.querySelector('.screen-two');
+const btnTry = document.querySelector('#btnTry');
+const btnPlayAgain = document.querySelector('#btnPlayAgain');
 const randomNumber = Math.round(Math.random() * 10);
+const pressEnter = document;
 let xAttempts = 1;
 
-//função Callback
+//Eventos
+btnTry.addEventListener('click', handleTryClick);
+btnPlayAgain.addEventListener('click', handlePlayAgain);
+pressEnter.addEventListener('keydown', handlePressEnter);
+
+//funções
 function handleTryClick(e) {
   e.preventDefault(); //Previnir o padrão
 
   const inputNumber = document.querySelector('#inputNumber');
 
-  if (Number(inputNumber.value) == randomNumber) {
-    screenOne.classList.add('hide');
-    screenTwo.classList.remove('hide');
-
-    screenTwo.querySelector(
-      'h2'
-    ).innerText = `Acertou em ${xAttempts} tentativas`;
+  if (inputNumber.value == '') {
+    xAttempts;
+  } else {
+    if (Number(inputNumber.value) == randomNumber) {
+      toggleScreen();
+      screenTwo.querySelector(
+        'h2'
+      ).innerText = `Acertou em ${xAttempts} tentativas`;
+    }
+    inputNumber.value = '';
+    xAttempts++;
   }
-  inputNumber.value = '';
-  xAttempts++;
 }
 
 function handlePlayAgain() {
-  screenOne.classList.remove('hide');
-  screenTwo.classList.add('hide');
+  toggleScreen();
   document.location.reload(true);
   xAttempts = 1;
 }
 
-//Eventos
-const btnTry = document.querySelector('#btnTry');
-const btnPlayAgain = document.querySelector('#btnPlayAgain');
+function toggleScreen() {
+  screenOne.classList.toggle('hide');
+  screenTwo.classList.toggle('hide');
+}
 
-btnTry.addEventListener('click', handleTryClick);
-btnPlayAgain.addEventListener('click', handlePlayAgain);
+function handlePressEnter(e) {
+  if (e.key == 'Enter' && screenOne.classList.contains('hide')) {
+    console.log(e);
+    handlePlayAgain();
+  }
+}
